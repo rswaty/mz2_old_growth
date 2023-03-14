@@ -1,5 +1,5 @@
 ---
-title: "bps_bar_chart"
+title: "BpS Bar Chart"
 author: "Randy Swaty"
 date: "2023-03-14"
 output: workflowr::wflow_html
@@ -9,9 +9,44 @@ editor_options:
 
 
 This will be just a simple bar chart in descending order
-## Read in and check data
+
+## Set up: set options, load packages and read in data
+
+```{r setup, message=FALSE, warning=FALSE}
+#prevent scientific notation
+options(scipen = 999999)
+
+# load packages
+library(scales)
+library(tidyverse)
+
+# read in data
+
+bps_mz2 <- read_csv("data/bps_mz2.csv")
+
+head(bps_mz2)
+```
+
+## Try Bar Chart
 
 ```{r}
 
+bpsChart <- 
+  ggplot(data = bps_mz2, aes(x = reorder(bps_name,acres), y = acres)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "",
+    subtitle = "Represents dominant vegetation systems pre-European colonization",
+    caption = "Represents ~95% of the landscape. \nData from landfire.gov.",
+    x = "",
+    y = "Acres") +
+  coord_flip() +
+  theme_bw() +
+  scale_y_continuous(labels = comma) 
+
+
+bpsChart
+
 ```
+
 
