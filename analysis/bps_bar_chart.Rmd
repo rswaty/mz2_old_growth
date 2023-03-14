@@ -7,6 +7,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+
+This will be just a simple bar chart in descending order
 ## Read in and check data
 
 ```{r}
