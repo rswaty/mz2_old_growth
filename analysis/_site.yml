@@ -1,14 +1,20 @@
-name: "mz2_old_growth"
+name: mz2_old_growth
 output_dir: ../docs
 navbar:
-  title: "mz2_old_growth"
+  title: mz2_old_growth
   left:
   - text: Home
     href: index.html
+  - text: BpSs
+    href: bps_bar_chart.rmd
   - text: About
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/rswaty/mz2_old_growth
 output:
   workflowr::wflow_html:
     toc: yes
