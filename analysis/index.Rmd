@@ -7,5 +7,12 @@ output:
 editor_options:
   chunk_output_type: console
 ---
+Website to share outputs and analysis in support of Kelly et al., 2023.
 
-Welcome to my research website.
+This project aims to:
+
+1. Explore old growth past and present for western OR, or LANDFIRE Map Zone 2
+2. Develop methods 
+3. Explore the implications of including 'open' and 'closed' old growth forests.
+
+
