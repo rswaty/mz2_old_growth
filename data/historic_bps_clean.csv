@@ -1,0 +1,29 @@
+Model_Code,BpS_Name,percent of old-closed,percent of old-open,total percent old,percent of bps old-closed,percent of bps old-open,percent of bps-early or mid
+10080_1_2_3_7,North Pacific Oak Woodland,0,100,86,0,86,14
+10150_2_3_4,California Coastal Redwood Forest,100,0,92,92,0,8
+10210_2_3_6_7,Klamath-Siskiyou Lower Montane Serpentine Mixed-Conifer Woodland,3,95,56,2,53,44
+10220_2_3_6_7,Klamath-Siskiyou Upper Montane Serpentine Mixed-Conifer Woodland,3,95,57,2,54,43
+10270_2_3_7,Mediterranean California Dry-Mesic Mixed-Conifer Forest and Woodland,100,0,14,14,0,86
+10280_2_3,Mediterranean California Mesic Mixed-Conifer Forest and Woodland,100,0,17,17,0,83
+10290_2_3_4_5_6_7_12,Mediterranean California Mixed Oak Woodland,59,84,64,38,54,36
+10300_2_3_4_5_6_7,Mediterranean California Lower Montane Black Oak-Conifer Forest and Woodland,34,79,88,30,70,12
+10310_2_3_4_5_6_12,California Montane Jeffrey Pine (- Ponderosa Pine) Woodland,0,100,46,0,46,54
+10320_2_3_7,Mediterranean California Red Fir Forest,23,57,46,10,26,54
+10350_1_2_7,North Pacific Dry Douglas-fir(-Madrone) Forest and Woodland,35,59,75,26,44,25
+10360_1_2,North Pacific Hypermaritime Sitka Spruce Forest,83,13,84,70,11,16
+10370_1_2_7,North Pacific Maritime Dry-Mesic Douglas-Fir-Western Hemlock Forest,64,22,72,46,16,28
+10390_1_2_3_7,North Pacific Maritime Mesic-Wet Douglas-fir-Western Hemlock Forest,81,7,76,61,5,24
+10431_2_3_6_7,Mediterranean California Mixed-Evergreen Forest -- Interior,100,0,20,20,0,80
+10432_2_3,Mediterranean California Mixed-Evergreen Forest -- Coastal,100,0,27,27,0,73
+10600_1_2_7,East Cascades Oak-Ponderosa Pine Forest and Woodland,100,0,9,9,0,91
+10630_2_7,North Pacific Broadleaf Landslide Forest and Shrubland,100,100,61,61,61,39
+11200_1_2_7,Willamette Valley Upland Prairie and Savanna,11,99,69,8,68,31
+11280_2_3_4,Northern California Coastal Scrub,100,0,80,80,0,20
+11310_2_3_4,California Northern Coastal Grassland,100,0,49,49,0,51
+11520_2_3_7,California Montane Riparian Systems,100,0,42,42,0,58
+11560_1_2_7,North Pacific Lowland Riparian Forest and Shrubland,29,40,66,19,27,34
+11570_1_2,North Pacific Swamp Systems,0,100,19,0,19,81
+11581_1_2_7,North Pacific Montane Riparian Woodland and Shrubland - Wet,100,0,15,15,0,85
+11582_1_2_7,North Pacific Montane Riparian Woodland and Shrubland - Dry,100,0,14,14,0,86
+11700_2_3_7,Klamath-Siskiyou Xeromorphic Serpentine Savanna and Chaparral,0,100,55,0,55,45
+11780_1_2_7,North Pacific Hypermaritime Western Red-cedar-Western Hemlock Forest,100,0,47,47,0,53

@@ -1,5 +1,5 @@
 ---
-title: "BpS Bar Chart"
+title: "Explore BpSs-historic"
 author: "Randy Swaty"
 date: "2023-03-14"
 output: workflowr::wflow_html
@@ -7,8 +7,15 @@ editor_options:
   chunk_output_type: console
 ---
 
+## To do
 
-This will be just a simple bar chart in descending order
+* get sum of acres
+* get acres open vs. closed
+* bps bar
+* stacked bar with percent of old being open or closed
+* stacked bar with open old, closed old and early, mid
+
+
 
 ## Set up: set options, load packages and read in data
 
@@ -18,35 +25,122 @@ options(scipen = 999999)
 
 # load packages
 library(scales)
+library(stringr)
 library(tidyverse)
 
 # read in data
 
 bps_mz2 <- read_csv("data/bps_mz2.csv")
 
+bps_mz2_clean <- read_csv("data/historic_bps_clean.csv")
+
 head(bps_mz2)
 ```
 
 ## Try Bar Chart
 
-```{r}
+```{r bps bar chart, fig.height= 15, fig.width=9.5, fig.align='left'}
+
+bps_mz2$shortName <- str_wrap(bps_mz2$bps_name, width = 30)
+
 
 bpsChart <- 
-  ggplot(data = bps_mz2, aes(x = reorder(bps_name,acres), y = acres)) +
+  ggplot(data = bps_mz2, aes(x = reorder(shortName,acres), y = acres)) +
   geom_bar(stat = "identity") +
   labs(
     title = "",
-    subtitle = "Represents dominant vegetation systems pre-European colonization",
-    caption = "Represents ~95% of the landscape. \nData from landfire.gov.",
+    subtitle = "",
+    caption = "",
     x = "",
     y = "Acres") +
-  coord_flip() +
+  coord_flip(clip = "off") +
   theme_bw() +
-  scale_y_continuous(labels = comma) 
-
+  scale_y_continuous(labels = comma,
+                     limits = c(-1000, 2500000)) 
 
 bpsChart
 
 ```
 
+
+## Stacked bar to explore percent of old that is open vs. closed
+
+
+DATA IS WRONG AS OF 21 MARCH 2023
+
+```{r open closed old}
+
+bps_mz2_long <- bps_mz2 %>%
+  select(-c(1,2,5)) %>%
+  pivot_longer(!shortName, names_to = "canopy", values_to = "percentOld")
+
+
+open_closed_chart <-
+  ggplot(data = bps_mz2_long, 
+         aes(x = shortName, 
+             y = percentOld, 
+             fill = canopy)) +
+  geom_bar(position = "stack", stat = "identity") +
+  labs(
+    title = "",
+    subtitle = "",
+    caption = "",
+    x = "",
+    y = "Acres") +
+  coord_flip(clip = "off") +
+  theme_bw() +
+  # scale_fill_manual(values = c("#a7dbb3", 
+  #                              "#3f5243")) +
+ scale_x_discrete(limits = rev) + 
+  scale_fill_manual(values=c("#3f5243", "#a7dbb3"), 
+                       name="Amount of old \nsuccession classes with\nOpen or Closed canopy",
+                       breaks=c("percentClosed", "percentOpen"),
+                       labels=c("Closed", "Open"))
+
+
+open_closed_chart
+
+```
+
+
+
+## Stacked bar to explore old-open vs. old-closed vs. early-mid
+
+DATA IS WRONG AS OF 21 MARCH 2023
+
+```{r open closed old mid early, fig.height= 15, fig.width=9.5, fig.align='left'}
+
+bps_mz2_clean$shortName <- str_wrap(bps_mz2_clean$BpS_Name, width = 30)
+
+bps_mz2_clean_long <- bps_mz2_clean %>%
+  select(-c(1:5)) %>%
+  pivot_longer(!shortName, names_to = "label", values_to = "percent")
+
+
+oo_oc_em_chart <-
+  ggplot(data = bps_mz2_clean_long, 
+         aes(x = shortName, 
+             y = percent, 
+             fill = label)) +
+  geom_bar(position = "stack", stat = "identity") +
+  labs(
+    title = "",
+    subtitle = "",
+    caption = "",
+    x = "",
+    y = "Acres") +
+  coord_flip(clip = "off") +
+  theme_bw() +
+  # scale_fill_manual(values = c("#a7dbb3", 
+  #                              "#3f5243")) +
+ scale_x_discrete(limits = rev) + 
+  scale_fill_manual(values=c("#3f5243", "#a7dbb3", "red"), 
+                       name="Amount of old-closed \nvs. old-open \nvs. early and mid",
+                       breaks=c("percent of bps old-closed", "percent of bps old-open", "percent of bps-early or mid"),
+                       labels=c("Closed-Old", "Open-Old", "Early and mid"))
+
+
+oo_oc_em_chart
+
+```
 
